@@ -1,26 +1,23 @@
-function CountWord(str, alphabet) {
-  let splStr = str.split("");
-  let splitAlph = alphabet.split("");
-
+function CharCount(param1, param2) {
   let splCount = {};
-  splStr.forEach((element) => {
-    let sdd = splStr.filter((ar) => {
+  param1.forEach((element) => {
+    let sdd = param2.filter((ar) => {
       return element === ar;
     });
     if (!splCount.hasOwnProperty(element)) {
       splCount[element] = sdd.length;
     }
   });
+  return splCount;
+}
 
-  let charAnum = {};
-  splStr.forEach((element) => {
-    let charArr = splitAlph.filter((arr) => {
-      return element === arr;
-    });
-    if (!charAnum.hasOwnProperty(element)) {
-      charAnum[element] = charArr.length;
-    }
-  });
+function CountWord(str, alphabet) {
+  let splStr = str.split("");
+  let splitAlph = alphabet.split("");
+
+  let splCount = CharCount(splStr, splStr);
+
+  let charAnum = CharCount(splStr, splitAlph);
 
   let minWord = 0;
 
